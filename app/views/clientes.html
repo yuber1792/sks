@@ -1,0 +1,71 @@
+ 
+<md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
+    <div>
+
+      <md-input-container>
+        <label>Buscar cliente</label>
+        <input ng-model="data">
+      </md-input-container>
+
+     
+    </div>
+  </md-content>
+ <div class="row marketing" style="width: 150%">
+                 <div class="datagrid">
+                   <table>
+                      <thead>
+                         <tr>
+                              <th>Nombre cliente</th>
+                              <th>Direccion</th>
+                              <th>Quien toma desicion</th>
+                              <th>Distribuidor principal</th>
+                                 <th>Observaciones</th>
+                              <th>Cliente skink </th>
+                          
+                              <th>Usa productos skink</th>
+                              <th>Recomienda</th>
+                              <th>Editar</th>
+                              
+                          </tr>
+                      </thead>
+                 
+                      <tbody>
+                          <tr  
+                           dir-paginate="cli in clientesData | filter: data |  itemsPerPage: 5 " pagination-id="clientes">
+                              <td><input type="text" ng-disabled="!cli.edit" ng-model="cli.nombreCliente"></td>
+                              <td><input type="text" ng-disabled="!cli.edit" ng-model="cli.direccion"></td>
+                              <td><input type="text" ng-disabled="!cli.edit" ng-model="cli.quienTomaDesicion"></td>
+                              <td><input type="text" ng-disabled="!cli.edit" ng-model="cli.distribuidorPrincipal"></td>
+                              <td><input type="text" ng-disabled="!cli.edit" ng-model="cli.observaciones"></td>
+                              <td>
+                                 <center>
+                                  <md-checkbox  ng-disabled="!cli.edit" ng-model="cli.clienteSkink">
+                                  </md-checkbox>
+                                 </center> 
+                              </td>
+                              <td>
+                                 <center>
+                                  <md-checkbox ng-disabled="!cli.edit" ng-model="cli.usaProductosSkink">
+                                  </md-checkbox>
+                                 </center> 
+                              </td>
+                              <td> 
+                                 <center>                             
+                                  <md-checkbox ng-disabled="!cli.edit" ng-model="cli.recomiendaSkink">
+                                  </md-checkbox>
+                                 </center> 
+                              </td>
+                              <td>
+                                  <md-button class="md-raised md-primary" ng-click="edit( $index , cli.$id)" >Editar</md-button>
+                              </td>
+
+                              
+                          </tr>
+                       
+                      </tbody>
+                  </table>
+                   <center> 
+                         <dir-pagination-controls pagination-id="clientes"></dir-pagination-controls>
+                      </center>
+                 </div>
+                </div>

@@ -1,0 +1,87 @@
+ <h3 class="md-display-2">Inventario</h3>
+  <md-button class="md-raised md-primary" ng-click="add()" >Agregar</md-button>
+  <div>
+    
+     <md-content md-theme="docs-dark" ng-show="muestraAdd" >
+    <div layout-gt-sm="row" layout-padding>
+      <md-input-container>
+        <label>Codigo</label>
+        <input ng-model="nuevoProducto.codigoSkink">
+      </md-input-container>
+
+      <md-input-container>
+        <label>Cantidad stock</label>
+        <input ng-model="nuevoProducto.cantidadStock" type="number">
+      </md-input-container>
+
+      <md-input-container>
+        <label>Precio tatuado</label>
+        <input ng-model="nuevoProducto.precioTatuador" type="number">
+      </md-input-container>
+
+      <md-input-container>
+        <label>Precio Distribuidor</label>
+        <input ng-model="nuevoProducto.precioDistribuidor" type="number">
+      </md-input-container>
+    </div>
+
+<md-input-container class="md-block">
+        <label>Descripcion</label>
+        <input md-maxlength="30" required md-no-asterisk name="description"  ng-model="nuevoProducto.descripcion" >
+      
+      </md-input-container>
+  </md-content>
+
+  </div>
+
+  <div class="row marketing">
+                 <div class="datagrid">
+                   <table>
+                      <thead>
+                         <tr>
+                              <th style="width: 10%" >Codigo</th>
+                              <th style="width: 10%">Cantidad Stock</th>
+                              <th style="width: 40%">Descripcion</th>
+                              <th style="width: 10%">Precio distribuidor</th>
+                              <th style="width: 10%">Precio tatuador</th>
+                              <th>Editar</th>
+                              <th>Eliminar</th>
+
+                          </tr>
+                      </thead>
+                 
+                      <tbody>
+                          <tr  dir-paginate="prod in productos | itemsPerPage: 5" pagination-id="inventario">
+                            <td style="width: 10%">
+                            <input style="width: 90%" ng-disabled="!prod.edit" type="text" ng-model="prod.codigoSkink">
+                            </td>
+                            <td style="width: 10%">
+                             <input style="width: 90%" ng-disabled="!prod.edit" type="text" ng-model="prod.cantidadStock">
+                             </td>
+                              <td  style="width: 40%">
+                              <input  style="width: 100%" ng-disabled="!prod.edit"  type="text" ng-model="prod.descripcion">
+                              </input>
+                              </td>
+                              <td style="width: 10%">
+                              <input style="width: 90%" ng-disabled="!prod.edit" type="text" ng-model="prod.precioDistribuidor">
+                              </td>
+                              <td style="width: 10%"> 
+                              <input style="width: 90%" ng-disabled="!prod.edit" type="text" ng-model="prod.precioTatuador">
+                              </td>
+                              <td>
+                               <md-button class="md-raised md-primary" ng-click="edit($index)" >Editar</md-button></td>
+                              <td><md-button class="md-raised md-primary" ng-click="delete(prod.CodigoProducto)" >Eliminar</md-button></td>
+
+
+                               
+                              
+                          </tr>
+
+                      </tbody>
+                  </table>
+                     <center> 
+                         <dir-pagination-controls pagination-id="inventario"></dir-pagination-controls>
+                      </center>
+                 
+                 </div>
+                </div>

@@ -1,0 +1,175 @@
+<div ng-cloak>
+  <md-content>
+   <h3 class="md-display-2">Visitas</h3>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="Apoyo">
+        <md-content class="md-padding">
+              <div class="row marketing">
+                 <div class="datagrid">
+                   <table>
+                      <thead>
+                         <tr>
+                              <th>Fecha</th>
+                              <th>Cliente</th>
+                              <th>Observaciones</th>
+                              <th>Vendedor</th>
+                          </tr>
+                      </thead>
+                 
+                      <tbody>
+                          <tr 
+                           dir-paginate="visita in apoyoVisitas | itemsPerPage: 5" pagination-id="apoyo">
+                              <td> <label ng-bind="formatDate(visita.fecha) |  date:'MM/dd/yyyy HH:mm'"></label></td>
+                              <td>{{visita.nombreCliente}}</td>
+                              <td>{{visita.observaciones}}</td>
+                              <td>{{visita.vendedor}}</td>
+                          </tr>
+                       
+                      </tbody>
+                  </table>
+                  <center> 
+                         <dir-pagination-controls pagination-id="apoyo"></dir-pagination-controls>
+                      </center>
+                 </div>
+                </div>
+        </md-content>
+      </md-tab>
+      <md-tab label="Cumplimiento ruta">
+        <md-content class="md-padding">          
+            <div class="row marketing">
+                 <div class="datagrid">
+                   <table>
+                      <thead>
+                         <tr>
+                              <th>Fecha</th>
+                              <th>Cliente</th>
+                              <th>Observaciones</th>
+                              <th>Vendedor</th>
+                          </tr>
+                      </thead>
+                 
+                      <tbody>
+                          <tr dir-paginate="visita in apoyoCumplimiento  | itemsPerPage: 5" pagination-id="cumplimiento">
+                              <td>  <label ng-bind="formatDate(visita.fecha) |  date:'MM/dd/yyyy HH:mm'"></label></td>
+                              <td>{{visita.nombreCliente}}</td>
+                              <td>{{visita.observaciones}}</td>
+                              <td>{{visita.vendedor}}</td>
+                          </tr>
+                       
+                      </tbody>
+                  </table>
+                   <center> 
+                         <dir-pagination-controls pagination-id="cumplimiento"></dir-pagination-controls>
+                      </center>
+                 </div>
+                </div>
+         
+        </md-content>
+      </md-tab>
+       <md-tab label="Cobro">
+        <md-content class="md-padding">          
+            <div class="row marketing">
+                 <div class="datagrid">
+                   <table>
+                      <thead>
+                         <tr>
+                              <th>Fecha</th>
+                              <th>Cliente</th>
+                              <th>Observaciones</th>
+                              <th>Vendedor</th>
+                              <th>N factura</th>
+                          </tr>
+                      </thead>
+                 
+                      <tbody>
+                          <tr 
+                          dir-paginate="visita in apoyoCobro   | itemsPerPage: 5" pagination-id="cobro">
+                              <td> <label ng-bind="formatDate(visita.fecha) |  date:'MM/dd/yyyy HH:mm'"></label></td>
+                              <td>{{visita.nombreCliente}}</td>
+                              <td>{{visita.observaciones}}</td>
+                              <td>{{visita.vendedor}}</td>
+                              <td>{{visita.facturaNumero}}</td>
+                          </tr>
+                       
+                      </tbody>
+                  </table>
+                   <center> 
+                         <dir-pagination-controls pagination-id="cobro"></dir-pagination-controls>
+                      </center>
+                 </div>
+                </div>
+        </md-content>
+      </md-tab>
+       <md-tab label="Entrega">
+        <md-content class="md-padding">
+          
+                <div class="row marketing">
+                 <div class="datagrid">
+                   <table>
+                      <thead>
+                         <tr>
+                              <th>Fecha</th>
+                              <th>Cliente</th>
+                              <th>Observaciones</th>
+                              <th>Vendedor</th>
+                              <th>N factura</th>
+                          </tr>
+                      </thead>
+                 
+                      <tbody>
+                          <tr
+                           dir-paginate="visita in apoyoEntrega   | itemsPerPage: 5" pagination-id="entrega">
+                              <td> <label ng-bind="formatDate(visita.fecha) |  date:'MM/dd/yyyy HH:mm'"></label></td>
+                              <td>{{visita.nombreCliente}}</td>
+                              <td>{{visita.observaciones}}</td>
+                              <td>{{visita.vendedor}}</td>
+                              <td>{{visita.facturaNumero}}</td>
+                          </tr>
+                       
+                      </tbody>
+                  </table>
+                     <center> 
+                         <dir-pagination-controls pagination-id="entrega"></dir-pagination-controls>
+                      </center>
+                 </div>
+                </div>
+        </md-content>
+      </md-tab>
+       <md-tab label="Reclamación">
+        <md-content class="md-padding">
+           <div class="row marketing">
+                 <div class="datagrid">
+                   <table>
+                      <thead>
+                         <tr>
+                              <th>Fecha</th>
+                              <th>Cliente</th>
+                              <th>Observaciones</th>
+                              <th>Vendedor</th>
+                          </tr>
+                      </thead>
+                 
+                      <tbody>
+                          <tr  dir-paginate="visita in apoyoReclamacion   | itemsPerPage: 5" pagination-id="relamacion">
+                              <td> <label ng-bind="formatDate(visita.fecha) |  date:'MM/dd/yyyy HH:mm'"></label></td>
+                              <td>{{visita.nombreCliente}}</td>
+                              <td>{{visita.observaciones}}</td>
+                              <td>{{visita.vendedor}}</td>
+                          </tr>
+                       
+                      </tbody>
+                  </table>
+                    <center> 
+                         <dir-pagination-controls pagination-id="relamacion"></dir-pagination-controls>
+                      </center>
+                 </div>
+                </div>
+        </md-content>
+      </md-tab>
+     
+    </md-tabs>
+  </md-content>
+</div>
+
+
+

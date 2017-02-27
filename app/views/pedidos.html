@@ -1,0 +1,49 @@
+ <h3 class="md-display-2">Pedidos</h3>
+  <div class="row marketing">
+                 <div class="datagrid">
+                   <table>
+                      <thead>
+                         <tr>
+                              <th>Fecha</th>
+                              <th>Cliente</th>
+                              <th>Observaciones</th>
+                              <th>Vendedor</th>
+                              <th>Total</th>
+                              <th style="width: 20%" >Guia</th>
+                              <th style="width: 20%">N. Factura</th>
+                              <th>Entregado</th>
+                              <th>Editar</th>
+                          </tr>
+                      </thead>
+                 
+                      <tbody>
+                          <tr 
+                            dir-paginate="visita in pedidosData | itemsPerPage: 5" pagination-id="pedidos">
+                              <td> <label ng-bind="formatDate(visita.fecha) |  date:'MM/dd/yyyy HH:mm'"></label></td>
+                              <td>{{visita.nombreCliente}}</td>
+                              <td>{{visita.observaciones}}</td>
+                              <td>{{visita.idVendedor}}</td>
+                              <td><input type="text" ng-disabled="!visita.edit" ng-model="visita.total"></td>
+                              <td><input type="text" ng-disabled="!visita.edit" ng-model="visita.guia" style="width: 90%"></td>
+                              <td><input type="text" ng-disabled="!visita.edit" ng-model="visita.numeroFactura" style="width: 90%">
+
+                              </td>
+                              <td> 
+                                  <center>
+                                      <md-checkbox  ng-disabled="!visita.edit" ng-model="visita.entregado">
+                                      </md-checkbox>
+                                  </center>                                     
+                              </td>
+
+                               <td>
+                                  <md-button class="md-raised md-primary" ng-click="edit( $index , visita.$id)" >Editar</md-button>
+                              </td>
+                          </tr>
+                       
+                      </tbody>
+                  </table>
+                      <center> 
+                         <dir-pagination-controls pagination-id="pedidos"></dir-pagination-controls>
+                      </center>
+                 </div>
+                </div>
