@@ -45,6 +45,26 @@ angular.module('skinkApp')
        
 
     }
+    //$scope.dataProductos = [];
+    $scope.detallePedido = function(id){
+        console.log("entra");
+        $scope.dataProductos  =$scope.pedidosData[id].productos ; 
+        console.log($scope.dataProductos);
+       /* for (var i = 0; i < $scope.dataProducts.length; i++) {
+           // $scope.dataProducts[id].descripcion = "" ;
+            console.log($scope.dataProducts[i].idProducto);
+            var refProd = firebase.database().ref().child("Productos/"+$scope.dataProducts[i].idProducto);
+            refProd.once('value', function(snapshot) {
+              console.log(snapshot.val());
+             // $scope.des = JSON.stringify(snapshot.val()) ;
+             // console.log($scope.des); 
+              $scope.dataProducts[i] = snapshot.val();
+//              $scope.dataProducts[i].descripcion = $scope.des ;
+            });
+
+        }*/
+
+    }
 
 
   });

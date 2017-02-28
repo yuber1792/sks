@@ -1,7 +1,7 @@
  <h3 class="md-display-2">Pedidos</h3>
   <div class="row marketing">
-                 <div class="datagrid">
-                   <table>
+                 <div class="datagrid" style="width: 110%;">
+                   <table >
                       <thead>
                          <tr>
                               <th>Fecha</th>
@@ -13,6 +13,7 @@
                               <th style="width: 20%">N. Factura</th>
                               <th>Entregado</th>
                               <th>Editar</th>
+                              <th>Detalle</th>
                           </tr>
                       </thead>
                  
@@ -38,6 +39,9 @@
                                <td>
                                   <md-button class="md-raised md-primary" ng-click="edit( $index , visita.$id)" >Editar</md-button>
                               </td>
+                              <td>
+                                  <md-button class="md-raised md-primary" ng-click="detallePedido( $index)" >Detalle</md-button>
+                              </td>
                           </tr>
                        
                       </tbody>
@@ -45,5 +49,30 @@
                       <center> 
                          <dir-pagination-controls pagination-id="pedidos"></dir-pagination-controls>
                       </center>
+                 </div>
+                </div>
+                <div class="row marketing">
+                 <div class="datagrid">
+                   <table>
+                      <thead>
+                         <tr>
+                              <th>Producto</th>
+                              <th>Cantidad</th>
+                              <th>Valor x unidad</th>
+                              <th>total </th>
+                          </tr>
+                      </thead>
+                 
+                      <tbody>
+                          <tr ng-repeat="visita in dataProductos">
+                              <td>{{visita.descripcion}}</label></td>
+                              <td>{{visita.cantidad}}</td>
+                              <td>{{visita.valor}}</td>
+                              <td>{{visita.cantidad * visita.valor }}</td>
+                          </tr>
+                       
+                      </tbody>
+                  </table>
+                  
                  </div>
                 </div>
