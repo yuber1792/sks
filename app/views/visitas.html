@@ -150,7 +150,7 @@
                       </thead>
                  
                       <tbody>
-                          <tr  dir-paginate="visita in apoyoReclamacion   | itemsPerPage: 5" pagination-id="relamacion">
+                          <tr  dir-paginate="visita in apoyoReclamacion   | itemsPerPage: 5" pagination-id="reclamacion">
                               <td> <label ng-bind="formatDate(visita.fecha) |  date:'MM/dd/yyyy HH:mm'"></label></td>
                               <td>{{visita.nombreCliente}}</td>
                               <td>{{visita.observaciones}}</td>
@@ -160,7 +160,7 @@
                       </tbody>
                   </table>
                     <center> 
-                         <dir-pagination-controls pagination-id="relamacion"></dir-pagination-controls>
+                         <dir-pagination-controls pagination-id="reclamacion"></dir-pagination-controls>
                       </center>
                  </div>
                 </div>
