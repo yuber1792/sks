@@ -18,31 +18,40 @@ angular.module('skinkApp')
     }
 
 
-    $scope.edit = function (id ,uidCliente){
-    	if($scope.clientesData[id].edit){
-    		$scope.clientesData[id].edit = false ; 
-    		//alert("editar" + uidCliente);
-    		if($scope.clientesData[id].recomiendaSkink === undefined){
-   				$scope.clientesData[id].recomiendaSkink = false;
+     $scope.edit = function (id ,uidCliente){
+ 
+           for (var i = 0 ; i <  $scope.clientesData.length ; i++) {
+             
+             // console.log($scope.clientesData[i].$id + " -- " + uidCliente );
+              if(uidCliente === $scope.clientesData[i].$id ){
+                  console.log("entra edit");
+                  if($scope.clientesData[i].edit){
+                    console.log("activa");
+                      $scope.clientesData[i].edit = false ; 
+                      
+                    //alert("editar" + uidCliente);
+                      if($scope.clientesData[i].recomiendaSkink === undefined){
+                        $scope.clientesData[i].recomiendaSkink = false;
+                      }
+                      ref.child(uidCliente).update(
+                          {
+                            nombreCliente :$scope.clientesData[i].nombreCliente,
+                            direccion :$scope.clientesData[i].direccion,
+                            quienTomaDesicion :$scope.clientesData[i].quienTomaDesicion,
+                            distribuidorPrincipal :$scope.clientesData[i].distribuidorPrincipal,
+                            observaciones :$scope.clientesData[i].observaciones,
+                            clienteSkink :$scope.clientesData[i].clienteSkink,
+                            usaProductosSkink :$scope.clientesData[i].usaProductosSkink,
+                            recomiendaSkink :$scope.clientesData[i].recomiendaSkink,
+                          }
 
-    		}
-    		ref.child(uidCliente).update(
-    							{
-    								nombreCliente :$scope.clientesData[id].nombreCliente,
-    								direccion :$scope.clientesData[id].direccion,
-    								quienTomaDesicion :$scope.clientesData[id].quienTomaDesicion,
-    								distribuidorPrincipal :$scope.clientesData[id].distribuidorPrincipal,
-    								observaciones :$scope.clientesData[id].observaciones,
-    								clienteSkink :$scope.clientesData[id].clienteSkink,
-    								usaProductosSkink :$scope.clientesData[id].usaProductosSkink,
-    								recomiendaSkink :$scope.clientesData[id].recomiendaSkink,
-    							}
-
-    			);
-    	}else{
-    		$scope.clientesData[id].edit = true; 
-    	}
-
+                      );
+                 }else{
+                  console.log("inactiva");
+                  $scope.clientesData[i].edit = true;                  
+                 }
+    	        }
+         }
 
     }
   });
