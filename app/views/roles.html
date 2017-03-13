@@ -1,0 +1,35 @@
+ <h3 class="md-display-2">Roles</h3>
+ <div class="row marketing">
+                 <div class="datagrid">
+                   <table>
+                      <thead>
+                         <tr>
+                              <th>Rol</th>
+                              <th>Eliminar cuenta</th>
+                              <th>Editar</th>
+                              
+                          </tr>
+                      </thead>
+                      <tbody>
+                        <!--  <tr 
+                           dir-paginate="visita in usuarios | itemsPerPage: 5" pagination-id="apoyo">
+                              
+                              <td>{{visita.$id}}</td>
+                              <td>{{visita.clave}}</td>
+                              <td>{{visita.rol}}</td>
+                              
+                          </tr>-->
+                       
+                       <tr ng-repeat="rol in rolesDat">
+
+                              <td>{{rol.$id}}</td>
+                              <td>{{rol.eliminarCliente}}</td>
+                               <td> <md-button class="md-raised md-primary" >Editar</md-button></td>
+                       </tr>
+                      </tbody>
+                  </table>
+                  <center> 
+                       <!--  <dir-pagination-controls pagination-id="rol"></dir-pagination-controls>-->
+                      </center>
+                 </div>
+                </div>

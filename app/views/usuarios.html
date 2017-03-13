@@ -1,0 +1,59 @@
+ <h3 class="md-display-2">Usuarios</h3>
+
+
+
+ <div class="row marketing">
+ <md-button class="md-raised md-primary" ng-click="add()" >Agregar</md-button>
+ <div ng-show="muestraAdd">
+    <md-input-container>
+        <label>Nombre</label>
+        <input ng-model="nuevoUsuario.nombre">
+      </md-input-container>
+
+      <md-input-container>
+        <label>Clave</label>
+        <input ng-model="nuevoUsuario.clave" >
+      </md-input-container>
+
+      <md-input-container>
+        <label>Rol</label>
+        <input ng-model="nuevoUsuario.rol" >
+      </md-input-container>
+</div>
+                 <div class="datagrid">
+                   <table>
+                      <thead>
+                         <tr>
+
+                              <th>Usuario</th>
+                              <th>Clave</th>
+                              <th>Rol</th>
+                              <th>Editar</th>
+                              <th>Eliminar</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        <!--  <tr 
+                           dir-paginate="visita in usuarios | itemsPerPage: 5" pagination-id="apoyo">
+                              
+                              <td>{{visita.$id}}</td>
+                              <td>{{visita.clave}}</td>
+                              <td>{{visita.rol}}</td>
+                              
+                          </tr>-->
+                       
+                       <tr    dir-paginate="usuario in usuariosRol | itemsPerPage: 5" pagination-id="apoyo">
+
+                              <td><input type="text" ng-disabled="!usuario.edit"  ng-model="usuario.nombre"></td>
+                              <td><input type="text" ng-disabled="!usuario.edit" ng-model="usuario.clave"></td>
+                              <td><input type="text" ng-disabled="!usuario.edit"  ng-model="usuario.rol"></td>
+                              <td> <md-button class="md-raised md-primary"  ng-click="edit($index , usuario.$id)" >Editar</md-button></td>
+                               <td> <md-button class="md-raised md-primary"  ng-click="delete(usuario.$id)" >Eliminar</md-button></td>
+                       </tr>
+                      </tbody>
+                  </table>
+                  <center> 
+                         <dir-pagination-controls pagination-id="apoyo"></dir-pagination-controls>
+                      </center>
+                 </div>
+                </div>

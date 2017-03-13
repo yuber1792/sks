@@ -49,6 +49,16 @@ angular
         controller: 'PedidosCtrl',
         controllerAs: 'pedidos'
       })
+      .when('/usuarios', {
+        templateUrl: 'views/usuarios.html',
+        controller: 'UsuariosCtrl',
+        controllerAs: 'usuarios'
+      })
+      .when('/roles', {
+        templateUrl: 'views/roles.html',
+        controller: 'RolesCtrl',
+        controllerAs: 'roles'
+      })
       .otherwise({
         redirectTo: '/visitas'
       });
