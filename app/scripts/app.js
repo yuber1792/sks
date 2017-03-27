@@ -59,6 +59,11 @@ angular
         controller: 'RolesCtrl',
         controllerAs: 'roles'
       })
+      .when('/bodegas', {
+        templateUrl: 'views/bodegas.html',
+        controller: 'BodegasCtrl',
+        controllerAs: 'bodegas'
+      })
       .otherwise({
         redirectTo: '/visitas'
       });

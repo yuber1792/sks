@@ -1,0 +1,109 @@
+  <h3 class="md-display-2">Bodegas</h3>
+  <md-button class="md-raised md-primary" ng-click="add()" >Agregar</md-button>
+
+  	<div  ng-show="muestraAdd">  			
+			  	<div layout-gt-sm="row" layout-padding>
+			      <md-input-container>
+			        <label>Nombre de la bodega</label>
+			        <input ng-model="nombreBodega">
+			      </md-input-container>  	
+
+			        <md-button class="md-raised md-primary" ng-click="crearBodega()" >Crear bodega</md-button>
+
+			    </div>
+  	</div>
+
+
+     <div class="row marketing">
+                 <div class="datagrid">
+                   <table>
+                      <thead>
+                         <tr>
+                              <th style="width: 30%" >Nombre</th>
+                              <th style="width: 10%">Editar</th>
+                              <th style="width: 10%" >Eliminar</th>
+                          </tr>
+                      </thead>
+                 
+                      <tbody>
+                          <tr  ng-repeat="prod in bodegasData" >
+                            
+                            <td style="width: 10%">
+                              {{prod.$id}}
+                            </td>
+                          
+                              <td>
+                               <md-button class="md-raised md-primary" ng-click="editarBodega(prod.$id)" >Editar</md-button></td>
+                              <td><md-button class="md-raised md-primary" ng-click="delete(prod.$id)" >Eliminar</md-button></td>
+
+
+                               
+                              
+                          </tr>
+
+                      </tbody>
+                  </table>                                       
+            </div>
+    </div>
+
+<h3>{{nombreBodegaSel}}</h3>
+
+    <div class="row marketing">
+                 <div class="datagrid">
+                   <table>
+                      <thead>
+                         <tr>
+                              <th style="width: 10%" >Codigo</th>
+                              <th style="width: 10%">Cantidad Stock</th>
+                             <!-- <th style="width: 10%">En bodega</th>-->
+                              <th style="width: 40%">Descripcion</th>
+                              <th style="width: 10%">Precio distribuidor</th>
+                              <th style="width: 10%">Precio tatuador</th>
+                              <th>Editar</th>
+                             <!-- <th>Eliminar</th> -->
+                          </tr>
+                      </thead>                 
+                      <tbody>
+                          <tr  dir-paginate="prod in productosBod | itemsPerPage: 20" pagination-id="inventario">
+                            
+                            <td style="width: 10%">
+                            <input style="width: 90%" ng-disabled="true" type="text" ng-model="prod.codigoSkink">
+                            </td>
+                            <td style="width: 10%">
+                             <input style="width: 90%" ng-disabled="!prod.edit" type="text" ng-model="prod.cantidadStock">
+                             </td>
+
+                          <!--   <td style="width: 10%">
+                             <input style="width: 90%" ng-disabled="true" type="text" ng-model="prod.enBodega">
+                             </td>
+							-->	
+
+                              <td  style="width: 40%">
+                              <input  style="width: 100%" ng-disabled="true"  type="text" ng-model="prod.descripcion">
+                              </input>
+                              </td>
+                              <td style="width: 10%">
+                              <input style="width: 90%" ng-disabled="true" type="text" ng-model="prod.precioDistribuidor">
+                              </td>
+                              <td style="width: 10%"> 
+                              <input style="width: 90%" ng-disabled="true" type="text" ng-model="prod.precioTatuador">
+                              </td>
+                              <td>
+                               <md-button class="md-raised md-primary" ng-click="editProducto($index)" >Editar</md-button></td>
+                            
+                            <!--  <td><md-button class="md-raised md-primary" ng-click="delete(prod.CodigoProducto)" >Eliminar</md-button></td>-->
+
+
+                               
+                              
+                          </tr>
+
+                      </tbody>
+                  </table>
+                     <center> 
+                         <dir-pagination-controls pagination-id="inventario"></dir-pagination-controls>
+                      </center>
+                 
+                 </div>
+                </div>
+

@@ -78,7 +78,7 @@ angular.module('skinkApp')
 
     $mdDialog.show(confirm).then(function() {
       $scope.status = 'You decided to get rid of your debt.';
-      alert("ok");
+     // alert("ok");
        $scope.eliminar();
     }, function() {
       $scope.status = 'You decided to keep your debt.';

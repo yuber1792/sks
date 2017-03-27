@@ -13,7 +13,6 @@
         <label>Cantidad stock</label>
         <input ng-model="nuevoProducto.cantidadStock" type="number">
       </md-input-container>
-
       <md-input-container>
         <label>Precio tatuado</label>
         <input ng-model="nuevoProducto.precioTatuador" type="number">
@@ -41,6 +40,7 @@
                          <tr>
                               <th style="width: 10%" >Codigo</th>
                               <th style="width: 10%">Cantidad Stock</th>
+                              <th style="width: 10%">En bodega</th>
                               <th style="width: 40%">Descripcion</th>
                               <th style="width: 10%">Precio distribuidor</th>
                               <th style="width: 10%">Precio tatuador</th>
@@ -52,12 +52,19 @@
                  
                       <tbody>
                           <tr  dir-paginate="prod in productos | itemsPerPage: 20" pagination-id="inventario">
+                            
                             <td style="width: 10%">
                             <input style="width: 90%" ng-disabled="!prod.edit" type="text" ng-model="prod.codigoSkink">
                             </td>
                             <td style="width: 10%">
                              <input style="width: 90%" ng-disabled="!prod.edit" type="text" ng-model="prod.cantidadStock">
                              </td>
+
+                             <td style="width: 10%">
+                             <input style="width: 90%" ng-disabled="true" type="text" ng-model="prod.enBodega">
+                             </td>
+
+
                               <td  style="width: 40%">
                               <input  style="width: 100%" ng-disabled="!prod.edit"  type="text" ng-model="prod.descripcion">
                               </input>
