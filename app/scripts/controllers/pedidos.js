@@ -29,6 +29,10 @@ angular.module('skinkApp')
     			 if($scope.pedidosData[id].entregado === undefined){
  						$scope.pedidosData[id].entregado  = false ;
     			 }
+           if($scope.pedidosData[id].guia === undefined || $scope.pedidosData[id].guia === null){
+              $scope.pedidosData[id].guia  =" ";
+
+           }
     			 ref.child(uid).update(
     				{
 
