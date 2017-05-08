@@ -21,6 +21,11 @@ angular
     'angularUtils.directives.dirPagination'
     
   ])
+  .filter('reverse', function() {
+  return function(items) {
+    return items.slice().reverse();
+  };
+})
   .config(function ($routeProvider) {
     $routeProvider
       

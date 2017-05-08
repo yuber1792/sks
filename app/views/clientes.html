@@ -10,20 +10,29 @@
      
     </div>
   </md-content>
- <div class="row marketing" style="width: 150%">
+ <div class="row marketing"  style="width: 220%;" >
                  <div class="datagrid">
-                   <table>
+                   <table >
                       <thead>
                          <tr>
                               <th>Nombre cliente</th>
+                              <th>Alias</th>
+                              <th>Nit o CC</th>
+                              <th>Tipo cliente</th>
+                              <th>Nombre del negocio</th>
+                              <th>Ciudad</th>
                               <th>Direccion</th>
+                              <th>Telefono</th>
+                              <th>Email</th>
+                              <th>Redes sociales</th>
                               <th>Quien toma desicion</th>
                               <th>Distribuidor principal</th>
-                                 <th>Observaciones</th>
+                              <th>Observaciones</th>
                               <th>Cliente skink </th>
-                          
                               <th>Usa productos skink</th>
                               <th>Recomienda</th>
+                              <th>Dispensador</th>
+                              <th>Dispensador y recomienda</th>     
                               <th>Editar</th>
                               
                           </tr>
@@ -31,9 +40,31 @@
                  
                       <tbody>
                           <tr  
-                           dir-paginate="cli in clientesData | filter: data |  itemsPerPage: 5 " pagination-id="clientes">
+                           dir-paginate="cli in clientesData | filter: data |  itemsPerPage: 15 " pagination-id="clientes">
                               <td><input type="text" ng-disabled="!cli.edit" ng-model="cli.nombreCliente"></td>
+                              <td><input type="text" ng-disabled="!cli.edit" ng-model=" cli.alias"></td>
+                              <td><input type="text" ng-disabled="!cli.edit" ng-model="cli.nitCC"></td>
+                              <td>
+                                <select ng-disabled="!cli.edit" ng-model="cli.tipoCliente">
+                                  <option value="Distribuidor">Distribuidor</option>
+                                  <option value="Tatuador">Tatuador</option>
+                                  <option value="Cliente final">Cliente final</option>
+                                  </select>
+                              </td>
+                              <td><input type="text" ng-disabled="!cli.edit" ng-model="cli.nombreNegocio"></td>
+                              <td>
+                                  <select ng-disabled="!cli.edit" ng-model="cli.ciudad">
+                                    <option value="Bogotá">Bogotá</option>
+                                    <option value="Medellin">Medellin</option>
+                                    <option value="Cali">Cali</option>
+                                    <option value="Cucuta">Cucuta</option>
+                                    <option value="Ecuador">Ecuador</option>
+                                  </select>
+                              </td>
                               <td><input type="text" ng-disabled="!cli.edit" ng-model="cli.direccion"></td>
+                              <td><input type="text" ng-disabled="!cli.edit" ng-model="cli.telefono"></td>
+                               <td><input type="text" ng-disabled="!cli.edit" ng-model="cli.email"></td>
+                                 <td><input type="text" ng-disabled="!cli.edit" ng-model="cli.redesSociales"></td>
                               <td><input type="text" ng-disabled="!cli.edit" ng-model="cli.quienTomaDesicion"></td>
                               <td><input type="text" ng-disabled="!cli.edit" ng-model="cli.distribuidorPrincipal"></td>
                               <td><input type="text" ng-disabled="!cli.edit" ng-model="cli.observaciones"></td>
@@ -52,6 +83,18 @@
                               <td> 
                                  <center>                             
                                   <md-checkbox ng-disabled="!cli.edit" ng-model="cli.recomiendaSkink">
+                                  </md-checkbox>
+                                 </center> 
+                              </td>
+                               <td> 
+                                 <center>                             
+                                  <md-checkbox ng-disabled="!cli.edit" ng-model="cli.dispensador">
+                                  </md-checkbox>
+                                 </center> 
+                              </td>
+                               <td> 
+                                 <center>                             
+                                  <md-checkbox ng-disabled="!cli.edit" ng-model="cli.dispensadorRecomiendaSkink">
                                   </md-checkbox>
                                  </center> 
                               </td>

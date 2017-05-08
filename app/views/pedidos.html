@@ -19,7 +19,7 @@
                  
                       <tbody>
                           <tr 
-                            dir-paginate="visita in pedidosData | itemsPerPage: 50" pagination-id="pedidos">
+                            dir-paginate="visita in pedidosData | reverse  | itemsPerPage: 50" pagination-id="pedidos">
                               <td> <label ng-bind="formatDate(visita.fecha) |  date:'MM/dd/yyyy HH:mm'"></label></td>
                               <td>{{visita.nombreCliente}}</td>
                               <td>{{visita.observaciones}}</td>

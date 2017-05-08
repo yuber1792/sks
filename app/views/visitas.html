@@ -18,7 +18,7 @@
                  
                       <tbody>
                           <tr 
-                           dir-paginate="visita in apoyoVisitas | itemsPerPage: 5" pagination-id="apoyo">
+                           dir-paginate="visita in apoyoVisitas | reverse  | itemsPerPage: 10 " pagination-id="apoyo">
                               <td> <label ng-bind="formatDate(visita.fecha) |  date:'MM/dd/yyyy HH:mm'"></label></td>
                               <td>{{visita.nombreCliente}}</td>
                               <td>{{visita.observaciones}}</td>
@@ -49,7 +49,7 @@
                       </thead>
                  
                       <tbody>
-                          <tr dir-paginate="visita in apoyoCumplimiento  | itemsPerPage: 5" pagination-id="cumplimiento">
+                          <tr dir-paginate="visita in apoyoCumplimiento | reverse | itemsPerPage: 10 " pagination-id="cumplimiento">
                               <td>  <label ng-bind="formatDate(visita.fecha) |  date:'MM/dd/yyyy HH:mm'"></label></td>
                               <td>{{visita.nombreCliente}}</td>
                               <td>{{visita.observaciones}}</td>
@@ -83,7 +83,7 @@
                  
                       <tbody>
                           <tr 
-                          dir-paginate="visita in apoyoCobro   | itemsPerPage: 5" pagination-id="cobro">
+                          dir-paginate="visita in apoyoCobro  | reverse   | itemsPerPage: 10 " pagination-id="cobro">
                               <td> <label ng-bind="formatDate(visita.fecha) |  date:'MM/dd/yyyy HH:mm'"></label></td>
                               <td>{{visita.nombreCliente}}</td>
                               <td>{{visita.observaciones}}</td>
@@ -118,7 +118,7 @@
                  
                       <tbody>
                           <tr
-                           dir-paginate="visita in apoyoEntrega   | itemsPerPage: 5" pagination-id="entrega">
+                           dir-paginate="visita in apoyoEntrega  | reverse | itemsPerPage: 10 " pagination-id="entrega">
                               <td> <label ng-bind="formatDate(visita.fecha) |  date:'MM/dd/yyyy HH:mm'"></label></td>
                               <td>{{visita.nombreCliente}}</td>
                               <td>{{visita.observaciones}}</td>
@@ -150,7 +150,7 @@
                       </thead>
                  
                       <tbody>
-                          <tr  dir-paginate="visita in apoyoReclamacion   | itemsPerPage: 5" pagination-id="reclamacion">
+                          <tr  dir-paginate="visita in apoyoReclamacion | reverse  | itemsPerPage: 10 " pagination-id="reclamacion">
                               <td> <label ng-bind="formatDate(visita.fecha) |  date:'MM/dd/yyyy HH:mm'"></label></td>
                               <td>{{visita.nombreCliente}}</td>
                               <td>{{visita.observaciones}}</td>
