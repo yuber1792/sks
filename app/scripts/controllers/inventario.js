@@ -11,6 +11,10 @@ angular.module('skinkApp')
   .controller('InventarioCtrl', function ($scope , $firebaseArray ,$mdDialog) {
      var ref = firebase.database().ref().child("Productos");
     $scope.productos = $firebaseArray(ref);
+    var refBodegas = firebase.database().ref().child("Bodegas");
+    $scope.bodegasLista =  $firebaseArray(refBodegas);
+    console.log("Bodegas"); 
+    console.log($scope.bodegasLista);
     $scope.muestraAdd =false  ; 
 
     console.log($scope.productos);
@@ -41,7 +45,7 @@ angular.module('skinkApp')
     }
  $scope.nuevoProducto = {};
     $scope.add = function(){
-
+        console.log("entra nuevo producto");
     		if($scope.muestraAdd){
 
     			 $scope.muestraAdd =false  ;
@@ -51,12 +55,31 @@ angular.module('skinkApp')
     			   				{
     			   					CodigoProducto : newPostKey ,
     			   					codigoSkink : $scope.nuevoProducto.codigoSkink,
-			    					cantidadStock : $scope.nuevoProducto.cantidadStock,
-			    					descripcion : $scope.nuevoProducto.descripcion,
-			    					precioTatuador : $scope.nuevoProducto.precioTatuador,
-			    					precioDistribuidor :$scope.nuevoProducto.precioDistribuidor,
+			    					  cantidadStock : $scope.nuevoProducto.cantidadStock,
+			    					  descripcion : $scope.nuevoProducto.descripcion,
+			    					  precioTatuador : $scope.nuevoProducto.precioTatuador,
+			    				  	precioDistribuidor :$scope.nuevoProducto.precioDistribuidor
     			   				}
     			   			);
+              
+            
+            
+              console.log("tamaño de  bodegas " +  $scope.bodegasLista.length );
+               for (var i = 0; i <  $scope.bodegasLista.length ; i++) {
+                  console.log("entra for " +$scope.bodegasLista[i].$id);
+                   refBodegas.child($scope.bodegasLista[i].$id + "/"  +newPostKey ).set({
+                        CodigoProducto : newPostKey ,
+                        codigoSkink : $scope.nuevoProducto.codigoSkink,
+                        cantidadStock : 0,
+                        descripcion : $scope.nuevoProducto.descripcion,
+                        precioTatuador : $scope.nuevoProducto.precioTatuador,
+                        precioDistribuidor :$scope.nuevoProducto.precioDistribuidor
+                  }); 
+
+               }
+
+             
+              
 
     		}else{
     			 $scope.muestraAdd =true  ;
@@ -95,6 +118,10 @@ angular.module('skinkApp')
     	var ref = firebase.database().ref().child("Productos");
     	console.log("id eliminar "  + $scope.idDelete ) ; 
     	ref.child($scope.idDelete).remove();
+      for (var i = 0; i <  $scope.bodegasLista.length ; i++) {
+        console.log("entra for " + $scope.bodegasLista[i].$id);
+        refBodegas.child($scope.bodegasLista[i].$id+"/"+$scope.idDelete).remove();
+      }
  
     }
 
