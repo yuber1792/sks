@@ -109,4 +109,12 @@ angular.module('skinkApp')
          }
 
     }
+
+
+
+     $scope.exportData = function () {
+        alasql('SELECT * INTO XLSX("john.xlsx",{headers:true}) FROM ?',[$scope.clientesData]);
+    };
+    
+  
   });
