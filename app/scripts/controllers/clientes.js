@@ -111,9 +111,87 @@ angular.module('skinkApp')
     }
 
 
-
+     $scope.exportInfo  = [];
      $scope.exportData = function () {
-        alasql('SELECT * INTO XLSX("john.xlsx",{headers:true}) FROM ?',[$scope.clientesData]);
+       
+       for (var i =0; i <  $scope.clientesData.length; i++) {
+        $scope.export = {};
+        console.log("alias = " + $scope.clientesData[i].alias);
+
+            if($scope.clientesData[i].alias === undefined || $scope.clientesData[i].alias === null) {
+              $scope.export.alias =   " " ; 
+            }
+            else{ 
+              $scope.export.alias = $scope.clientesData[i].alias ; 
+            }
+
+            if($scope.clientesData[i].nombreCliente === undefined ) {
+              $scope.export.nombreCliente =   "" ; 
+            }
+            else{ 
+              $scope.export.nombreCliente = $scope.clientesData[i].nombreCliente ; 
+            }
+
+            if($scope.clientesData[i].nitCC === undefined) {
+              $scope.export.nitCC =   "" ; 
+            }
+            else{ 
+              $scope.export.nitCC = $scope.clientesData[i].nitCC ; 
+            }
+
+            if($scope.clientesData[i].nombreNegocio === undefined) {
+              $scope.export.nombreNegocio =   "" ; 
+            }
+            else{ 
+              $scope.export.nombreNegocio = $scope.clientesData[i].nombreNegocio ; 
+            }
+
+            if($scope.clientesData[i].tipoCliente === undefined) {
+              $scope.export.tipoCliente =   "" ; 
+            }
+            else{ 
+              $scope.export.tipoCliente = $scope.clientesData[i].tipoCliente ; 
+            }
+
+            if($scope.clientesData[i].ciudad === undefined) {
+              $scope.export.ciudad =   "" ; 
+            }
+            else{ 
+              $scope.export.ciudad = $scope.clientesData[i].ciudad ; 
+            }
+
+            if($scope.clientesData[i].telefono === undefined) {
+              $scope.export.telefono =   "" ; 
+            }
+            else{ 
+              $scope.export.telefono = $scope.clientesData[i].telefono ; 
+            }
+
+             if($scope.clientesData[i].direccion === undefined) {
+              $scope.export.direccion =   "" ; 
+            }
+            else{ 
+              $scope.export.direccion = $scope.clientesData[i].direccion ; 
+            }
+
+             if($scope.clientesData[i].email === undefined) {
+              $scope.export.email =   "" ; 
+            }
+            else{ 
+              $scope.export.email = $scope.clientesData[i].email ; 
+            }
+
+            if($scope.clientesData[i].redesSociales === undefined) {
+              $scope.export.redesSociales =   "" ; 
+            }
+            else{ 
+              $scope.export.redesSociales = $scope.clientesData[i].redesSociales ; 
+            }
+             $scope.exportInfo.push($scope.export);
+      
+       }
+
+        alasql('SELECT * INTO XLSX("ClienteData.xlsx",{headers:true}) FROM ?',[ $scope.exportInfo]);
     };
     
   
