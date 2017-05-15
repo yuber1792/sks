@@ -36,6 +36,7 @@ angular.module('skinkApp')
 				descripcion :  $scope.productos[i].descripcion,
 				precioTatuador :  $scope.productos[i].precioTatuador,
 				precioDistribuidor : $scope.productos[i].precioDistribuidor,
+        precioCliente : $scope.productos[i].precioCliente
 			  });
       }
 
@@ -145,6 +146,7 @@ angular.module('skinkApp')
     					descripcion : $scope.productosBod[id].descripcion,
     					precioTatuador : $scope.productosBod[id].precioTatuador,
     					precioDistribuidor : $scope.productosBod[id].precioDistribuidor,
+              precioCliente : $scope.productosBod[id].precioCliente
     				}
     			);
 

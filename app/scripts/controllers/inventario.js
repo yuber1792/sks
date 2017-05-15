@@ -36,6 +36,7 @@ angular.module('skinkApp')
     					descripcion : $scope.productos[id].descripcion,
     					precioTatuador : $scope.productos[id].precioTatuador,
     					precioDistribuidor : $scope.productos[id].precioDistribuidor,
+              precioCliente : $scope.productos[id].precioCliente
     				}
     			);
     	}else{
@@ -58,7 +59,8 @@ angular.module('skinkApp')
 			    					  cantidadStock : $scope.nuevoProducto.cantidadStock,
 			    					  descripcion : $scope.nuevoProducto.descripcion,
 			    					  precioTatuador : $scope.nuevoProducto.precioTatuador,
-			    				  	precioDistribuidor :$scope.nuevoProducto.precioDistribuidor
+			    				  	precioDistribuidor :$scope.nuevoProducto.precioDistribuidor,
+                      precioCliente :$scope.nuevoProducto.precioCliente
     			   				}
     			   			);
               
@@ -73,7 +75,8 @@ angular.module('skinkApp')
                         cantidadStock : 0,
                         descripcion : $scope.nuevoProducto.descripcion,
                         precioTatuador : $scope.nuevoProducto.precioTatuador,
-                        precioDistribuidor :$scope.nuevoProducto.precioDistribuidor
+                        precioDistribuidor :$scope.nuevoProducto.precioDistribuidor,
+                        precioCliente :$scope.nuevoProducto.precioCliente
                   }); 
 
                }

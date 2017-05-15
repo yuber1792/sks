@@ -59,6 +59,7 @@
                               <th style="width: 40%">Descripcion</th>
                               <th style="width: 10%">Precio distribuidor</th>
                               <th style="width: 10%">Precio tatuador</th>
+                              <th style="width: 10%">Precio cliente</th>
                               <th>Editar</th>
                              <!-- <th>Eliminar</th> -->
                           </tr>
@@ -83,10 +84,13 @@
                               </input>
                               </td>
                               <td style="width: 10%">
-                              <input style="width: 90%" ng-disabled="true" type="text" ng-model="prod.precioDistribuidor">
+                              <input style="width: 90%" ng-disabled="!prod.edit" type="text" ng-model="prod.precioDistribuidor">
                               </td>
                               <td style="width: 10%"> 
-                              <input style="width: 90%" ng-disabled="true" type="text" ng-model="prod.precioTatuador">
+                              <input style="width: 90%" ng-disabled="!prod.edit" type="text" ng-model="prod.precioTatuador">
+                              </td>
+                               <td style="width: 10%"> 
+                              <input style="width: 90%" ng-disabled="!prod.edit" type="text" ng-model="prod.precioCliente">
                               </td>
                               <td>
                                <md-button class="md-raised md-primary" ng-click="editProducto($index)" >Editar</md-button></td>
