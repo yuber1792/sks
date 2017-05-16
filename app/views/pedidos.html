@@ -1,47 +1,60 @@
  <h3 class="md-display-2">Pedidos</h3>
   <div class="row marketing">
-                 <div class="datagrid" style="width: 110%;">
+                 <div class="datagrid" style="width: 150%;">
                    <table >
                       <thead>
                          <tr>
+                          <th>Editar</th>
+                              <th>Detalle</th>
                               <th>Fecha</th>
                               <th>Cliente</th>
                               <th>Observaciones</th>
                               <th>Vendedor</th>
+                              <th>Tipo venta</th>
+                              <th>Tipo pago</th>
+                              <th>Descuento</th>
+                              <th>Lote</th>                              
                               <th>Total</th>
                               <th style="width: 20%" >Guia</th>
                               <th style="width: 20%">N. Factura</th>
                               <th>Entregado</th>
-                              <th>Editar</th>
-                              <th>Detalle</th>
+                             
                           </tr>
                       </thead>
                  
                       <tbody>
+
                           <tr 
                             dir-paginate="visita in pedidosData | reverse  | itemsPerPage: 50" pagination-id="pedidos">
+                                 <td>
+                                  <md-button class="md-raised md-primary" ng-click="edit( $index , visita.$id)" >Editar</md-button>
+                              </td>
+                              <td>
+                                  <md-button class="md-raised md-primary" ng-click="detallePedido( visita.$id)" >Detalle</md-button>
+                              </td>
                               <td> <label ng-bind="formatDate(visita.fecha) |  date:'MM/dd/yyyy HH:mm'"></label></td>
+
                               <td>{{visita.nombreCliente}}</td>
                               <td>{{visita.observaciones}}</td>
                               <td>{{visita.idVendedor}}</td>
-                              <td><input type="text" ng-disabled="!visita.edit" ng-model="visita.total"></td>
-                              <td><input type="text" ng-disabled="!visita.edit" ng-model="visita.guia" style="width: 90%"></td>
-                              <td><input type="text" ng-disabled="!visita.edit" ng-model="visita.numeroFactura" style="width: 90%">
+                              <td>{{visita.tipoVenta}}</td>
+                              <td>{{visita.canalPago}}</td>
+                              <td>{{visita.descuento}}</td>
+                              <td>{{visita.lote}}</td>
+                              
+                              <td><input type="text" ng-disabled="!visita.editp" ng-model="visita.total"></td>
+                              <td style="width: 10%"><input type="text" ng-disabled="!visita.editp" ng-model="visita.guia" style="width: 90%"></td>
+                              <td><input type="text" ng-disabled="!visita.editp" ng-model="visita.numeroFactura" style="width: 90%">
 
                               </td>
                               <td> 
                                   <center>
-                                      <md-checkbox  ng-disabled="!visita.edit" ng-model="visita.entregado">
+                                      <md-checkbox  ng-disabled="!visita.editp" ng-model="visita.entregado">
                                       </md-checkbox>
                                   </center>                                     
                               </td>
 
-                               <td>
-                                  <md-button class="md-raised md-primary" ng-click="edit( $index , visita.$id)" >Editar</md-button>
-                              </td>
-                              <td>
-                                  <md-button class="md-raised md-primary" ng-click="detallePedido( $index)" >Detalle</md-button>
-                              </td>
+                            
                           </tr>
                        
                       </tbody>
