@@ -112,4 +112,150 @@ angular.module('skinkApp')
     }
 
 
+     $scope.exportInfo  = [];
+     $scope.exportData = function () {
+       
+       for (var i =0; i <  $scope.pedidosData.length; i++) {
+             $scope.export = {};
+           //  console.log($scope.pedidosData[i].productos);
+
+             for (var j = 0; j < $scope.pedidosData[i].productos.length ; j++) {
+
+
+                  if($scope.pedidosData[i].numeroFactura === undefined || $scope.pedidosData[i].numeroFactura === null) {
+                    $scope.export.numeroFactura =   " " ; 
+                  }
+                  else{ 
+                    $scope.export.numeroFactura = $scope.pedidosData[i].numeroFactura ; 
+                  }
+
+                   if($scope.pedidosData[i].fecha === undefined || $scope.pedidosData[i].fecha === null) {
+                    $scope.export.fecha =   " " ; 
+                  }
+                  else{ 
+                    $scope.export.fecha = $scope.pedidosData[i].fecha ; 
+                  }
+
+                  if($scope.pedidosData[i].alias === undefined || $scope.pedidosData[i].alias === null) {
+                    $scope.export.alias =   " " ; 
+                  }
+                  else{ 
+                    $scope.export.alias = $scope.pedidosData[i].alias ; 
+                  }
+
+                  if($scope.pedidosData[i].cliente === undefined || $scope.pedidosData[i].cliente === null) {
+                    $scope.export.cliente =   " " ; 
+                  }
+                  else{ 
+                    $scope.export.cliente = $scope.pedidosData[i].cliente ; 
+                  }
+                   if($scope.pedidosData[i].tipoCliente === undefined || $scope.pedidosData[i].tipoCliente === null) {
+                    $scope.export.tipoCliente =   " " ; 
+                  }
+                  else{ 
+                    $scope.export.tipoCliente = $scope.pedidosData[i].tipoCliente ; 
+                  }
+                   if($scope.pedidosData[i].ciudad === undefined || $scope.pedidosData[i].ciudad === null) {
+                    $scope.export.ciudad =   " " ; 
+                  }
+                  else{ 
+                    $scope.export.ciudad = $scope.pedidosData[i].ciudad ; 
+                  }
+
+                   if($scope.pedidosData[i].refProd === undefined || $scope.pedidosData[i].refProd === null) {
+                    $scope.export.refProd =   " " ; 
+                  }
+                  else{ 
+                    $scope.export.refProd = $scope.pedidosData[i].refProd ; 
+                  }
+
+                  /*if($scope.pedidosData[i].cantidadVendidas === undefined || $scope.pedidosData[i].cantidadVendidas === null) {
+                    $scope.export.cantidadVendidas =   " " ; 
+                  }
+                  else{ */
+                    $scope.export.cantidadVendidas = $scope.pedidosData[i].productos[j].cantidad ; 
+                 // }
+
+                  /* if($scope.pedidosData[i].valorUnitario === undefined || $scope.pedidosData[i].valorUnitario === null) {
+                    $scope.export.valorUnitario =   " " ; 
+                  }
+                  else{ */
+                    $scope.export.valorUnitario = $scope.pedidosData[i].productos[j].valor ; 
+                  //}
+
+                   if($scope.pedidosData[i].descuento === undefined || $scope.pedidosData[i].descuento === null) {
+                    $scope.export.descuento =   " " ; 
+                  }
+                  else{ 
+                    $scope.export.descuento = $scope.pedidosData[i].descuento ; 
+                  }
+
+               /*   if($scope.pedidosData[i].valorVenta === undefined || $scope.pedidosData[i].valorVenta === null) {
+                    $scope.export.valorVenta =   " " ; 
+                  }
+                  else{ */
+                    $scope.export.valorVenta = $scope.pedidosData[i].productos[j].cantidad * $scope.pedidosData[i].productos[j].valor ; 
+                 // }
+
+                  if($scope.pedidosData[i].lote === undefined || $scope.pedidosData[i].lote === null) {
+                    $scope.export.lote =   " " ; 
+                  }
+                  else{ 
+                    $scope.export.lote = $scope.pedidosData[i].lote ; 
+                  }
+
+                  if($scope.pedidosData[i].tipoVenta === undefined || $scope.pedidosData[i].tipoVenta === null) {
+                    $scope.export.tipoVenta =   " " ; 
+                  }
+                  else{ 
+                    $scope.export.tipoVenta = $scope.pedidosData[i].tipoVenta ; 
+                  }
+
+                   if($scope.pedidosData[i].canalPago === undefined || $scope.pedidosData[i].canalPago === null) {
+                    $scope.export.canalPago =   " " ; 
+                  }
+                  else{ 
+                    $scope.export.canalPago = $scope.pedidosData[i].canalPago ; 
+                  }
+
+                   if($scope.pedidosData[i].entregado) {
+                    $scope.export.estado =  "Entregado" ; 
+                  }
+                  else{ 
+                   $scope.export.estado =  "Pedido" ; 
+                  }
+
+                  if($scope.pedidosData[i].guia === undefined || $scope.pedidosData[i].guia === null) {
+                    $scope.export.guia =   " " ; 
+                  }
+                  else{ 
+                    $scope.export.guia = $scope.pedidosData[i].guia ; 
+                  }
+
+                  if($scope.pedidosData[i].idVendedor === undefined || $scope.pedidosData[i].idVendedor === null) {
+                    $scope.export.idVendedor =   " " ; 
+                  }
+                  else{ 
+                    $scope.export.idVendedor = $scope.pedidosData[i].idVendedor ; 
+                  }
+
+                   if($scope.pedidosData[i].bodega === undefined || $scope.pedidosData[i].bodega === null) {
+                    $scope.export.bodega =   " " ; 
+                  }
+                  else{ 
+                    $scope.export.bodega = $scope.pedidosData[i].bodega ; 
+                  }
+                   console.log($scope.export);
+                  
+                   $scope.exportInfo.push($scope.export);  
+
+               
+             }//fin segundo for 
+        
+    
+       }//fin primer for 
+       console.log($scope.exportInfo);
+       // alasql('SELECT * INTO XLSX("PediddosData.xlsx",{headers:true}) FROM ?',[ $scope.exportInfo]);
+    };
+
   });
