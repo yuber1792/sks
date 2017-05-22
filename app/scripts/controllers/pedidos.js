@@ -114,13 +114,14 @@ angular.module('skinkApp')
 
      $scope.exportInfo  = [];
      $scope.exportData = function () {
+      $scope.exportInfo = [];
        
        for (var i =0; i <  $scope.pedidosData.length; i++) {
-             $scope.export = {};
+             
            //  console.log($scope.pedidosData[i].productos);
 
              for (var j = 0; j < $scope.pedidosData[i].productos.length ; j++) {
-
+                  $scope.export = {};
 
                   if($scope.pedidosData[i].numeroFactura === undefined || $scope.pedidosData[i].numeroFactura === null) {
                     $scope.export.numeroFactura =   " " ; 
@@ -155,19 +156,19 @@ angular.module('skinkApp')
                   else{ 
                     $scope.export.tipoCliente = $scope.pedidosData[i].tipoCliente ; 
                   }
-                   if($scope.pedidosData[i].ciudad === undefined || $scope.pedidosData[i].ciudad === null) {
+                  
+                  if($scope.pedidosData[i].ciudad === undefined || $scope.pedidosData[i].ciudad === null) {
                     $scope.export.ciudad =   " " ; 
                   }
                   else{ 
                     $scope.export.ciudad = $scope.pedidosData[i].ciudad ; 
                   }
 
-                   if($scope.pedidosData[i].refProd === undefined || $scope.pedidosData[i].refProd === null) {
-                    $scope.export.refProd =   " " ; 
-                  }
-                  else{ 
-                    $scope.export.refProd = $scope.pedidosData[i].refProd ; 
-                  }
+                    console.log("******************************");
+
+                    $scope.export.refProd = $scope.pedidosData[i].productos[j].codigoSkink ; 
+                    console.log($scope.export.refProd);
+                    console.log("******************************");                  
 
                   /*if($scope.pedidosData[i].cantidadVendidas === undefined || $scope.pedidosData[i].cantidadVendidas === null) {
                     $scope.export.cantidadVendidas =   " " ; 
@@ -255,7 +256,7 @@ angular.module('skinkApp')
     
        }//fin primer for 
        console.log($scope.exportInfo);
-       // alasql('SELECT * INTO XLSX("PediddosData.xlsx",{headers:true}) FROM ?',[ $scope.exportInfo]);
+        alasql('SELECT * INTO XLSX("PediddosData.xlsx",{headers:true}) FROM ?',[ $scope.exportInfo]);
     };
 
   });
