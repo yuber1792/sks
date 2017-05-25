@@ -134,7 +134,7 @@ angular.module('skinkApp')
                     $scope.export.fecha =   " " ; 
                   }
                   else{ 
-                    $scope.export.fecha = $scope.pedidosData[i].fecha ; 
+                    $scope.export.fecha = new Date($scope.pedidosData[i].fecha) ; 
                   }
 
                   if($scope.pedidosData[i].alias === undefined || $scope.pedidosData[i].alias === null) {
@@ -150,6 +150,13 @@ angular.module('skinkApp')
                   else{ 
                     $scope.export.cliente = $scope.pedidosData[i].cliente ; 
                   }
+                   if($scope.pedidosData[i].nitCliente === undefined || $scope.pedidosData[i].nitCliente === null) {
+                    $scope.export.nitCliente =   " " ; 
+                  }
+                  else{ 
+                    $scope.export.nitCliente = $scope.pedidosData[i].nitCliente ; 
+                  }
+
                    if($scope.pedidosData[i].tipoCliente === undefined || $scope.pedidosData[i].tipoCliente === null) {
                     $scope.export.tipoCliente =   " " ; 
                   }
@@ -246,6 +253,15 @@ angular.module('skinkApp')
                   else{ 
                     $scope.export.bodega = $scope.pedidosData[i].bodega ; 
                   }
+
+                  if($scope.pedidosData[i].observaciones === undefined || $scope.pedidosData[i].observaciones === null) {
+                    $scope.export.observaciones =   " " ; 
+                  }
+                  else{ 
+                    $scope.export.observaciones = $scope.pedidosData[i].observaciones ; 
+                  }
+
+
                    console.log($scope.export);
                   
                    $scope.exportInfo.push($scope.export);  

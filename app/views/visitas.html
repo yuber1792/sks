@@ -1,9 +1,11 @@
 <div ng-cloak>
   <md-content>
+
    <h3 class="md-display-2">Visitas</h3>
     <md-tabs md-dynamic-height md-border-bottom>
       <md-tab label="Apoyo">
         <md-content class="md-padding">
+         <md-button class="md-raised md-primary"  ng-click="exportar('Apoyo')" >Exportar visitas apoyo</md-button>
               <div class="row marketing">
                  <div class="datagrid">
                    <table>
@@ -35,7 +37,8 @@
         </md-content>
       </md-tab>
       <md-tab label="Cumplimiento ruta">
-        <md-content class="md-padding">          
+        <md-content class="md-padding">    
+              <md-button class="md-raised md-primary"  ng-click="exportar('Cumplimiento')" >Exportar visitas cumplimiento ruta </md-button>      
             <div class="row marketing">
                  <div class="datagrid">
                    <table>
@@ -67,7 +70,8 @@
         </md-content>
       </md-tab>
        <md-tab label="Cobro">
-        <md-content class="md-padding">          
+        <md-content class="md-padding">  
+          <md-button class="md-raised md-primary"  ng-click="exportar('Cobro')" >Exportar visitas cobro </md-button>        
             <div class="row marketing">
                  <div class="datagrid">
                    <table>
@@ -101,8 +105,9 @@
         </md-content>
       </md-tab>
        <md-tab label="Entrega">
+
         <md-content class="md-padding">
-          
+             <md-button class="md-raised md-primary"  ng-click="exportar('Entrega')" >Exportar visitas entrega </md-button>   
                 <div class="row marketing">
                  <div class="datagrid">
                    <table>
@@ -137,6 +142,7 @@
       </md-tab>
        <md-tab label="Reclamación">
         <md-content class="md-padding">
+              <md-button class="md-raised md-primary"  ng-click="exportar('Reclamacion')" >Exportar visitas reclamacion </md-button>
            <div class="row marketing">
                  <div class="datagrid">
                    <table>
