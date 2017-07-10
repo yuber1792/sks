@@ -13,14 +13,17 @@
     
    
   </md-content>
- <div class="row marketing"  style="width: 220%;" >
+ <div class="row marketing"  style="width: 260%;" >
                  <div class="datagrid">
                    <table >
                       <thead>
                          <tr>
+                         <th>Editar</th>
                               <th>Nombre cliente</th>
                               <th>Alias</th>
                               <th>Nit o CC</th>
+                              <th>Latitud</th>
+                              <th>Longitud</th>
                               <th>Tipo cliente</th>
                               <th>Nombre del negocio</th>
                               <th>Ciudad</th>
@@ -36,17 +39,23 @@
                               <th>Recomienda</th>
                               <th>Dispensador</th>
                               <th>Dispensador y recomienda</th>     
-                              <th>Editar</th>
+                              
                               
                           </tr>
                       </thead>
                  
                       <tbody>
+
                           <tr  
                            dir-paginate="cli in clientesData | filter: data |  itemsPerPage: 15 " pagination-id="clientes">
+                             <td>
+                                  <md-button class="md-raised md-primary" ng-click="edit( $index , cli.$id)" >Editar</md-button>
+                              </td>
                               <td><input type="text" ng-disabled="!cli.edit" ng-model="cli.nombreCliente"></td>
                               <td><input type="text" ng-disabled="!cli.edit" ng-model=" cli.alias"></td>
                               <td><input type="text" ng-disabled="!cli.edit" ng-model="cli.nitCC"></td>
+                                <td><input type="text" ng-disabled="!cli.edit" ng-model="cli.latitud"></td>
+                                  <td><input type="text" ng-disabled="!cli.edit" ng-model="cli.longitud"></td>
                               <td>
                                 <select ng-disabled="!cli.edit" ng-model="cli.tipoCliente">
                                   <option value="Distribuidor">Distribuidor</option>
@@ -101,9 +110,7 @@
                                   </md-checkbox>
                                  </center> 
                               </td>
-                              <td>
-                                  <md-button class="md-raised md-primary" ng-click="edit( $index , cli.$id)" >Editar</md-button>
-                              </td>
+                            
 
                               
                           </tr>

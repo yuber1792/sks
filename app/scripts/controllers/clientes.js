@@ -91,6 +91,8 @@ angular.module('skinkApp')
                             //nuevos campos para export excel 
                             alias:$scope.clientesData[i].alias,
                             nitCC :$scope.clientesData[i].nitCC,
+                            latitud :$scope.clientesData[i].latitud,
+                            longitud :$scope.clientesData[i].longitud,
                             tipoCliente : $scope.clientesData[i].tipoCliente,
                             nombreNegocio : $scope.clientesData[i].nombreNegocio,
                             ciudad : $scope.clientesData[i].ciudad,

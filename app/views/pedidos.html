@@ -40,9 +40,9 @@
                               <td>{{visita.idVendedor}}</td>
                               <td>{{visita.tipoVenta}}</td>
                               <td>{{visita.canalPago}}</td>
-                              <td>{{visita.descuento}}</td>
-                              <td>{{visita.lote}}</td>
                               
+                               <td><input type="text" ng-disabled="!visita.editp" ng-model="visita.descuento"></td>
+                                <td><input type="text" ng-disabled="!visita.editp" ng-model="visita.lote"></td>
                               <td><input type="text" ng-disabled="!visita.editp" ng-model="visita.total"></td>
                               <td style="width: 10%"><input type="text" ng-disabled="!visita.editp" ng-model="visita.guia" style="width: 90%"></td>
                               <td><input type="text" ng-disabled="!visita.editp" ng-model="visita.numeroFactura" style="width: 90%">

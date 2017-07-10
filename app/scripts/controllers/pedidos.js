@@ -54,13 +54,24 @@ angular.module('skinkApp')
                      $scope.pedidosData[j].guia  =" ";
 
                   }    
+                   if($scope.pedidosData[j].numeroFactura === undefined || $scope.pedidosData[j].numeroFactura === null){
+                     $scope.pedidosData[j].numeroFactura  =" ";
+
+                  }
+                   if($scope.pedidosData[j].descuento === undefined || $scope.pedidosData[j].descuento === null){
+                     $scope.pedidosData[j].descuento  =" ";
+
+                  }  
                   ref.child(uid).update(
                     {
 
                       total : $scope.pedidosData[j].total,
                       guia : $scope.pedidosData[j].guia ,
                       numeroFactura: $scope.pedidosData[j].numeroFactura ,
-                      entregado : $scope.pedidosData[j].entregado  
+                      entregado : $scope.pedidosData[j].entregado  ,
+                      lote :  $scope.pedidosData[j].lote,
+                      descuento : $scope.pedidosData[j].descuento
+
               
                     }
                   );
