@@ -1,5 +1,32 @@
  <h3 class="md-display-2">Pedidos</h3>
    <md-button class="md-raised md-primary"  ng-click="exportData()" >Exportar</md-button>
+
+                   <div class="row marketing">
+                 <div class="datagrid">
+                   <table>
+                      <thead>
+                         <tr>
+                              <th>Producto</th>
+                              <th>Cantidad</th>
+                              <th>Valor x unidad</th>
+                              <th>total </th> 
+                          </tr>
+                      </thead>
+                 
+                      <tbody>
+                          <tr ng-repeat="visita in dataProductos">
+                              <td>{{visita.descripcion}}</label></td>
+                              <td>{{visita.cantidad}}</td>
+                              <td>{{visita.valor}}</td>
+                              <td>{{visita.cantidad * visita.valor }}</td>
+                          </tr>
+                       
+                      </tbody>
+                  </table>
+                  
+                 </div>
+                </div>
+                
   <div class="row marketing">
                  <div class="datagrid" style="width: 150%;">
                    <table >
@@ -63,30 +90,5 @@
                       <center> 
                          <dir-pagination-controls pagination-id="pedidos"></dir-pagination-controls>
                       </center>
-                 </div>
-                </div>
-                <div class="row marketing">
-                 <div class="datagrid">
-                   <table>
-                      <thead>
-                         <tr>
-                              <th>Producto</th>
-                              <th>Cantidad</th>
-                              <th>Valor x unidad</th>
-                              <th>total </th> 
-                          </tr>
-                      </thead>
-                 
-                      <tbody>
-                          <tr ng-repeat="visita in dataProductos">
-                              <td>{{visita.descripcion}}</label></td>
-                              <td>{{visita.cantidad}}</td>
-                              <td>{{visita.valor}}</td>
-                              <td>{{visita.cantidad * visita.valor }}</td>
-                          </tr>
-                       
-                      </tbody>
-                  </table>
-                  
                  </div>
                 </div>
