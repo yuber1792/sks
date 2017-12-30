@@ -38,7 +38,8 @@
                               <th>Usa productos skink</th>
                               <th>Recomienda</th>
                               <th>Dispensador</th>
-                              <th>Dispensador y recomienda</th>     
+                              <th>Dispensador y recomienda</th>    
+                              <th>Requiere QR</th>     
                               
                               
                           </tr>
@@ -107,6 +108,12 @@
                                <td> 
                                  <center>                             
                                   <md-checkbox ng-disabled="!cli.edit" ng-model="cli.dispensadorRecomiendaSkink">
+                                  </md-checkbox>
+                                 </center> 
+                              </td>
+                                 <td> 
+                                 <center>                             
+                                  <md-checkbox ng-disabled="!cli.edit" ng-model="cli.requiereQr">
                                   </md-checkbox>
                                  </center> 
                               </td>

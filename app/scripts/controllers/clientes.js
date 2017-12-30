@@ -15,6 +15,11 @@ angular.module('skinkApp')
       console.log($scope.clientesData);
        for (var i = 0; i <  $scope.clientesData.length ; i++) {
     	   $scope.clientesData[i].edit = false ; 
+         if($scope.clientesData[i].requiereQr === undefined || $scope.clientesData[i].requiereQr === false){
+            $scope.clientesData[i].requiereQr = false ;
+         }else{
+              $scope.clientesData[i].requiereQr = true ;
+         }
        }
 
 
@@ -30,6 +35,10 @@ angular.module('skinkApp')
                       $scope.clientesData[i].edit = false ; 
                       
                     //alert("editar" + uidCliente);
+                    if($scope.clientesData[i].requiereQr === undefined){
+                        $scope.clientesData[i].requiereQr = false;
+                      }
+
                       if($scope.clientesData[i].recomiendaSkink === undefined){
                         $scope.clientesData[i].recomiendaSkink = false;
                       }
@@ -98,7 +107,8 @@ angular.module('skinkApp')
                             ciudad : $scope.clientesData[i].ciudad,
                             telefono : $scope.clientesData[i].telefono,
                             email : $scope.clientesData[i].email,
-                            redesSociales : $scope.clientesData[i].redesSociales
+                            redesSociales : $scope.clientesData[i].redesSociales,
+                            requiereQr :  $scope.clientesData[i].requiereQr
 
                           }
 
@@ -188,6 +198,12 @@ angular.module('skinkApp')
             }
             else{ 
               $scope.export.redesSociales = $scope.clientesData[i].redesSociales ; 
+            }
+             if($scope.clientesData[i].requiereQr === undefined) {
+              $scope.export.requiereQr =   false ; 
+            }
+            else{ 
+              $scope.export.requiereQr = $scope.clientesData[i].requiereQr ; 
             }
              $scope.exportInfo.push($scope.export);
       
