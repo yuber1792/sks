@@ -47,11 +47,15 @@ angular.module('skinkApp')
               if( $scope.pedidosData[j].editp){
 
                   $scope.pedidosData[j].editp = false ; 
-                  if($scope.pedidosData[j].entregado === undefined){
+                  if($scope.pedidosData[j].entregado === undefined || $scope.pedidosData[j].entregado === null ){
                     $scope.pedidosData[j].entregado  = false ;
                  }
                   if($scope.pedidosData[j].guia === undefined || $scope.pedidosData[j].guia === null){
                      $scope.pedidosData[j].guia  =" ";
+
+                  }
+                    if($scope.pedidosData[j].lote === undefined || $scope.pedidosData[j].lote === null){
+                     $scope.pedidosData[j].lote  =" ";
 
                   }    
                    if($scope.pedidosData[j].numeroFactura === undefined || $scope.pedidosData[j].numeroFactura === null){
@@ -75,6 +79,8 @@ angular.module('skinkApp')
               
                     }
                   );
+
+                  alert("Editado correctamente");
                 }else{
             
                  $scope.pedidosData[j].editp = true ; 
