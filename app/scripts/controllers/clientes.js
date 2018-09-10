@@ -9,7 +9,7 @@
  */
 angular.module('skinkApp')
   .controller('ClientesCtrl', function ($scope ,$firebaseArray ) {
-      var ref = firebase.database().ref().child("Clientes");
+      var ref = firebase.database().ref().child("ClientesDesplazamiento");
       $scope.clientesData = $firebaseArray(ref);
       //$scope.clientes1  = JSON.stringify($scope.clientes);
       console.log($scope.clientesData);

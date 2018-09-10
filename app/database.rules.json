@@ -1,0 +1,15 @@
+{
+  "rules": {
+    ".read": "true",
+    ".write": "true",
+    "Clientes": {
+      ".indexOn": "usaProductosSkink"
+    },
+    "VisitaVenta": {
+      ".indexOn": "idCliente"
+    },
+    "VisitaApoyo": {
+      ".indexOn": "icCliente"
+    }
+  }
+}
